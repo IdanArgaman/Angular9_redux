@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AppStore } from './store/store';
-import { MaterialActions } from './api/material.actions';
+import { ProductActions } from './api/product.actions';
+import { DxFormComponent } from 'devextreme-angular';
 
 @Component({
   selector: 'app-root',
@@ -9,23 +10,12 @@ import { MaterialActions } from './api/material.actions';
 })
 export class AppComponent {
   title = 'my-app';
+  @ViewChild(DxFormComponent, { static: false }) myform: DxFormComponent;
 
   constructor(private store: AppStore) {}
 
   get state() {
     return this.store.getState();
-  }
-
-  update() {
-    this.store.dispatch({
-      type: MaterialActions.UPDATE_MATERIAL,
-      payload: {
-        position: 1,
-        name: 'New Material',
-        weight: 123456789,
-        symbol: 'Z'
-      }
-    });
   }
 
 }

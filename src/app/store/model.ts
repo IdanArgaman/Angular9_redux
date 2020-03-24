@@ -1,6 +1,6 @@
-import { IMaterialState } from '../model/material.model';
+import { IProductState } from '../model/product.model';
 
 export interface IAppState {
-  materialsState: IMaterialState;
+  productsState: IProductState;
 }
 

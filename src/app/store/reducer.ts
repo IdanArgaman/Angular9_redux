@@ -1,10 +1,10 @@
 import { Reducer, combineReducers} from 'redux';
 import { IAppState } from './model';
 
-import { createMaterialReducer } from '../reducers/material.reducer';
+import { createProductReducer } from '../reducers/product.reducer';
 
 export const reducerMap = {
-    materialsState: createMaterialReducer()
+    productsState: createProductReducer()
 };
 
 export const rootReducer: Reducer<IAppState> = combineReducers<IAppState>(reducerMap);

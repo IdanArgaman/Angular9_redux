@@ -1,6 +1,12 @@
   <dx-data-grid
     id="gridContainer"
-    [dataSource]="state.materialsState.materialData"
-    [columns]="['position','symbol', 'name', 'weight']"
-    [showBorders]="true">
+    [dataSource]="state.productsState.products"
+    [columns]="['id','name', 'price', 'description','creationDate ']"
+    [showBorders]="true"
+    keyExpr="id"
+    [selectedRowKeys]="[]"
+    [hoverStateEnabled]="true"
+    (onSelectionChanged)="onSelectionChanged($event)">
+    <dxo-selection mode="single"></dxo-selection>
+    
   </dx-data-grid>

@@ -1,9 +1,13 @@
 import { createStore,  Store, StoreEnhancer,  applyMiddleware,
-  Dispatch, Reducer, Unsubscribe, combineReducers } from 'redux';
+  Dispatch, Reducer, Unsubscribe, combineReducers, compose } from 'redux';
 
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import persistState from 'redux-localstorage';
+
+const enhancer = compose(persistState());
+
 
 import { IAppState } from './model';
 import { rootReducer, reducerMap } from './reducer';
@@ -16,7 +20,7 @@ export function createAppStore(): Store <IAppState> {
 
   // CREATE //
 
-  const store = <AppStore>createStore <IAppState> (
+  const store = <AppStore>createStore<IAppState> (
     rootReducer, composeWithDevTools(applyMiddleware(thunk, createLogger()))
   );
 

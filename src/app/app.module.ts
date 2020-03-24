@@ -12,16 +12,15 @@ import { appStoreProviders } from './store/store';
 import * as Init from './services/appload.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CorrelationInterceptor } from './services/corrleation.interceptor';
-import { WebsocketConnectComponent } from './components/websocket-connect/websocket-connect.component';
-
-import { DxDataGridModule } from 'devextreme-angular';
+import { DxDataGridModule,  DxSelectBoxModule, DxTextAreaModule, DxFormModule } from 'devextreme-angular';
 import { DxGridComponent } from './components/dx-grid/dx-grid.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WebsocketConnectComponent,
-    DxGridComponent
+    DxGridComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +29,9 @@ import { DxGridComponent } from './components/dx-grid/dx-grid.component';
     FormsModule,
     BrowserAnimationsModule,
     DxDataGridModule,
+    DxSelectBoxModule,
+    DxTextAreaModule,
+    DxFormModule
   ],
   providers: [
     appStoreProviders,
