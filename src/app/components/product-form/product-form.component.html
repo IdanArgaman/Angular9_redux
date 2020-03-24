@@ -1,5 +1,5 @@
 
-  <div style="width: 500px; margin-top: 20px">
+  <div class="form-container">
     <dx-form id="form"
         [colCount]="2"
         [formData]="productClone">
@@ -9,9 +9,10 @@
         <dxi-item dataField="creationDate" editorType="dxDateBox"></dxi-item>
         <dxi-item dataField="description" editorType="dxTextArea" [editorOptions]="{ height: 90 }" [colSpan]="2"></dxi-item>
     </dx-form>
+
+    <div class="button-bar">
+      <button (click)="deleteProduct()">Delete</button>
+      <button (click)="updateProduct()">Update</button>
+    </div>
   </div>
 
-  <div style="margin-top: 10px;">
-    <button style="display: inline-block; margin-right: 10px;" (click)="deleteProduct()">Delete</button>
-    <button (click)="updateProduct()">Update</button>
-  </div>

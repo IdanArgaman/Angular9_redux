@@ -4,10 +4,7 @@ import { createStore,  Store, StoreEnhancer,  applyMiddleware,
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import persistState from 'redux-localstorage';
-
-const enhancer = compose(persistState());
-
+import { loadState, saveState } from './localStorage';
 
 import { IAppState } from './model';
 import { rootReducer, reducerMap } from './reducer';
@@ -20,8 +17,9 @@ export function createAppStore(): Store <IAppState> {
 
   // CREATE //
 
+  const persistedState = loadState();
   const store = <AppStore>createStore<IAppState> (
-    rootReducer, composeWithDevTools(applyMiddleware(thunk, createLogger()))
+    rootReducer, persistedState, composeWithDevTools(applyMiddleware(thunk, createLogger()))
   );
 
   // EXTEND //
@@ -37,6 +35,10 @@ export function createAppStore(): Store <IAppState> {
 
     store.replaceReducer(combineReducers(store.currentReducerMap));
   };
+
+  store.subscribe(() => {
+    saveState(store.getState());
+  });
 
   // DEBUG //
 

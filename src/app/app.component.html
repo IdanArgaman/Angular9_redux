@@ -1,5 +1,6 @@
 <div class="app-container">
   <app-dx-grid></app-dx-grid>
-  <app-product-form [product]="state.productsState.selectedProduct"></app-product-form>
-   
+  <app-product-form *ngIf="state.productsState.selectedProduct" 
+    [product]="state.productsState.selectedProduct"></app-product-form>
+  
 </div>
