@@ -1,0 +1,107 @@
+:host {
+
+    .websocket-connect-container {
+
+        display: none;
+
+        &.shown {
+            display: block;
+        }
+    }
+
+    
+    button.connection-state-indicator {
+        height: 20px;
+        width: 20px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        background-color: lightcoral;
+
+        &:focus {
+            outline:0;
+        }
+
+        &.connected {
+            background-color: lightgreen;
+        }
+    }
+
+    .last-messages-container {
+        display: none;
+        position: relative;
+        
+        background-color: black;
+        border: 3px solid green;
+        width: 400px;
+        height: 400px;
+        display: none;
+        padding: 1em;
+        overflow: auto;
+        
+        &.expanded {
+            width: 1000px;
+            height: 700px;
+        }
+
+        button.btn-expand-view {
+            color: white;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 30px;
+
+            &:focus {
+               outline:0;
+            }
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+
+        button.btn-close-view {
+            color: white;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            &:focus {
+               outline:0;
+            }
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+        
+        &.shown {
+            display: block;
+        }
+        .header {
+            padding: 0.25em 0;
+        }
+        .messages {
+            padding: 0.25em 0;
+            text-decoration: underline;
+        }
+        .message-container {
+            padding: 0.25em;
+            display: flex;
+            &.green {
+                color: lightgreen;
+            }
+            &.red {
+                color: lightcoral;
+            }
+            .message-receive-content {
+                padding-left: 1em;
+            }
+        }
+    }
+}

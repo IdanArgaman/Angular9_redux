@@ -1,0 +1,44 @@
+<div class="websocket-connect-container"
+     [ngClass]="{'shown': componentShown}">
+
+    <button type="button"
+            title="{{_url}}"
+            (click)="lastMessagesVisible = !lastMessagesVisible"
+            class="connection-state-indicator"
+            [ngClass]="{'connected': connectionState === 'CONNECTED'}"></button>
+
+    <div class="last-messages-container" *ngIf="lastMessagesVisible"
+         [ngClass]="{'shown': lastMessagesVisible, 'expanded': expanded}">
+
+        <button type="button"
+                (click)="expanded = !expanded"
+                class="btn-expand-view">
+                <i class="fas fa-expand"></i>
+         </button>
+
+         <button type="button"
+                (click)="lastMessagesVisible = false"
+                class="btn-close-view">
+                <i class="fas fa-times"></i>
+         </button>
+
+        <div class="header">
+            Url: {{_url}}
+        </div>
+
+        <div class="messages">
+            Last {{lassMessagesToKeep}} Messages:
+        </div>
+
+        <div *ngFor="let message of lastMessages"
+             class="message-container"
+             [ngClass]="{'green': message.type === 'OK', 'red': message.type === 'ERROR'}">
+            <div class="message-receive-time">
+                {{ message.time | date:'mediumTime' }}:
+            </div>
+            <div class="message-receive-content">
+                {{ message.data | json}}
+            </div>
+        </div>
+    </div>
+</div>
