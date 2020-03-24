@@ -19,7 +19,7 @@ export function createAppStore(): Store <IAppState> {
 
   const persistedState = loadState();
   const store = <AppStore>createStore<IAppState> (
-    rootReducer, composeWithDevTools(applyMiddleware(thunk, createLogger()))
+    rootReducer,persistedState, composeWithDevTools(applyMiddleware(thunk, createLogger()))
   );
 
   // EXTEND //
