@@ -15,12 +15,20 @@ import { CorrelationInterceptor } from './services/corrleation.interceptor';
 import { DxDataGridModule,  DxSelectBoxModule, DxTextAreaModule, DxFormModule } from 'devextreme-angular';
 import { DxGridComponent } from './components/dx-grid/dx-grid.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductListItemComponent } from './components/product-list-item/product-list-item.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DxGridComponent,
     ProductFormComponent,
+    ProductListComponent,
+    ProductListItemComponent,
+    TopBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     DxDataGridModule,
     DxSelectBoxModule,
     DxTextAreaModule,
-    DxFormModule
+    DxFormModule,
+    FontAwesomeModule
   ],
   providers: [
     appStoreProviders,

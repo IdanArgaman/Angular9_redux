@@ -11,6 +11,8 @@ const handlers: HandlersMap = {
     [ProductActions.UPDATE_PRODUCT]: updateProduct,
     [ProductActions.SELECT_PRODUCT]: selectProduct,
     [ProductActions.DELETE_PRODUCT]: deleteProduct,
+    [ProductActions.CREATE_PRODUCT]: createProduct,
+    [ProductActions.UPDATE_FILTER]: updateProductFilter,
 
 };
 
@@ -51,7 +53,8 @@ const SOME_INITIAL_STATE: IProductState = {
         description: 'Great for gaming'
       }
     ],
-    selectedProduct: null
+    selectedProduct: null,
+    filter: null
 };
 
 export function createProductReducer() {
@@ -100,6 +103,24 @@ function deleteProduct(state: IProductState, action: any) {
       ...state,
       products,
       selectedProduct: null
+  };
+}
+
+function createProduct(state: IProductState, action: any) {
+
+  const products = [...state.products, {id: new Date().getTime(), ...action.payload}];
+
+  return {
+    ...state,
+    products,
+  };
+}
+
+function updateProductFilter(state: IProductState, action: any) {
+
+  return {
+    ...state,
+    filter: action.payload,
   };
 }
 

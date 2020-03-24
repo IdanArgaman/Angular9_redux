@@ -23,17 +23,19 @@ export class ProductFormComponent implements OnInit {
   }
 
   updateProduct() {
-    this.store.dispatch({
-      type: ProductActions.UPDATE_PRODUCT,
-      payload: this.productClone
-    });
+    if(this.productClone.id) {
+      this.store.dispatch({
+        type: ProductActions.UPDATE_PRODUCT,
+        payload: this.productClone
+      });
+    } else {
+      this.store.dispatch({
+        type: ProductActions.CREATE_PRODUCT,
+        payload: this.productClone
+      });
+    }
+
   }
 
-  deleteProduct() {
-    this.store.dispatch({
-      type: ProductActions.DELETE_PRODUCT,
-      payload:  this.productClone
-    });
-  }
 
 }

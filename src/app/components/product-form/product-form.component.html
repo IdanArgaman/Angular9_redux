@@ -11,8 +11,7 @@
     </dx-form>
 
     <div class="button-bar">
-      <button (click)="deleteProduct()">Delete</button>
-      <button (click)="updateProduct()">Update</button>
+      <button (click)="updateProduct()">{{ productClone.id ? 'Update' : 'Create'}}</button>
     </div>
   </div>
 

@@ -9,4 +9,5 @@ export class IProduct {
 export interface IProductState {
     products: IProduct[];
     selectedProduct: IProduct;
+    filter:string;
 }
