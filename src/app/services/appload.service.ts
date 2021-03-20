@@ -13,7 +13,7 @@ export class AppConfig {
 export class AppLoadService {
 
     constructor(private httpClient: HttpClient,
-        private config: AppConfig) {
+                private config: AppConfig) {
     }
 
     getSettings(): Promise < AppConfig > {

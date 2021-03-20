@@ -22,8 +22,9 @@ export function createAppStore(): Store <IAppState> {
     rootReducer,persistedState, composeWithDevTools(applyMiddleware(thunk, createLogger()))
   );
 
-  // EXTEND //
+  // EXTEND THE STORE //
 
+  // 😄 Really adavanced! Allow extending our store by modules that supports redux!
   store.currentReducerMap = reducerMap;
 
   store.extendReducer = (reducerKey) => {
